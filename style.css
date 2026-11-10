@@ -12,37 +12,70 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:root {
+  /* Colors */
+  --color-primary: #1d4ed8;
+  --color-text: #1f2937;
+  --color-background: #ffffff;
+  --color-muted: #4b5563;
+
+   /* Spacing */
+  --space-s: 6px;
+  --space-m: 12px;
+  --space-l: 20px;
+  --space-xl: 30px;
+
+  /* Type */
+  --font-body: system-ui, sans-serif;
+  --font-heading: Georgia, serif;
+}
+
 /* STEP 7: add your img rule here */
 
 /* === BASE TYPE === */
 body {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
-  color: #1f2937;
-  background: #ffffff;
+  color: var(--color-text);
+  background:var(--color-background);
 }
 
 h1,
 h2,
 h3 {
-  font-family: Georgia, serif;
-  margin-bottom: 13px;
+  font-family:var(--font-heading);
+  margin-bottom:var(--space-m);
 }
 
 p {
   max-width: 65ch;
-  margin-bottom: 15px;
+  margin-bottom:var(--space-l);
 }
 
 /* STEP 1: how many blues can you find? */
 a {
-  color: #1d4fd9;
+  color:var(--color-primary);
 }
 
 /* STEP 11: this hides the focus ring. Tab through the page and see. */
 a,
 .button {
-  outline: none;
+a:hover,
+.button:hover {
+  opacity: 0.85;
+}
+
+a:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
 }
 
 /* === HEADER === */
@@ -50,12 +83,12 @@ a,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 22px;
-  background: #1d4ed8;
+  padding:var(--space-l);
+  background: var(--color-primary);
 }
 
 .logo {
-  color: #ffffff;
+  color:var(--color-text);
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 0;
@@ -63,38 +96,38 @@ a,
 
 .site-header nav {
   display: flex;
-  gap: 17px;
+  gap:var(--space-l);
 }
 
 .site-header nav a {
-  color: #ffffff;
+  color:var(--color-text);
   text-decoration: none;
 }
 
 /* === BUTTONS === */
 .button {
   display: inline-block;
-  background: #1e4fd8;
-  color: #ffffff;
-  padding: 11px 23px;
+  background:var(--color-primary);
+  color:var(--color-primary);
+  padding:var(--space-l);
   border-radius: 6px;
   text-decoration: none;
-  margin-top: 14px;
+  margin-top:var(--space-m);
 }
 
 /* === PAGE GRID === */
 .page {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 19px;
-  padding: 25px;
+  gap:var(--space-l);
+  padding:var(--space-xl);
 }
 
 /* === SECTIONS === */
 section {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-muted);
   border-radius: 8px;
-  padding: 21px;
+  padding:var(--space-l);
 }
 
 .hero,
@@ -105,29 +138,26 @@ section {
 
 .feature {
   grid-column: span 4;
-  margin-right: 17px;
 }
 
 .feature h3 {
-  color: #1c4ed7;
-  margin-bottom: 7px;
+  color:var(--colr-primary);
+  margin-bottom:var(--space-s);
 }
 
 /* STEP 9: is this readable? */
 .tagline {
-  color: #a3a3a3;
+  color:var(--color-muted);
   font-size: 1.15rem;
 }
 
 .hero img {
-  display: block;
-  height: 600px;
-  margin-top: 12px;
+  margin-top:var(--space-m);
   border-radius: 6px;
 }
 
 .signup {
-  background: #eff6ff;
+  background:var(--color-background);
   text-align: center;
 }
 
@@ -138,8 +168,8 @@ section {
 
 /* === FOOTER === */
 .site-footer {
-  padding: 20px 25px;
-  color: #b0b0b0;
+  padding:var(--space-l);
+  color:var(--color-background);
   font-size: 0.875rem;
 }
 
@@ -152,6 +182,6 @@ section {
   .site-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 9px;
+    gap:var(--space-m);
   }
 }
